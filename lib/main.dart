@@ -8,7 +8,6 @@ import 'constants.dart';
 import 'features/log_in/presentation/view_model/bloc_observer.dart';
 import 'features/log_in/presentation/view_model/body.dart';
 import 'features/log_in/presentation/view_model/network.dart';
-import 'features/log_in/presentation/views/log_in view.dart';
 import 'features/qr_code/presentation/view_model/bodyqr.dart';
 
 
@@ -17,11 +16,11 @@ void main()async{
   Bloc.observer = MyBlocObserver();
     SharedPreferences prefs = await SharedPreferences.getInstance();
   await CacheNetwork.cachInstialization();
-  remember = await prefs.getBool('remember');
-
+  remember = prefs.getBool('remember');
+//remove await
   token=  await CacheNetwork.getCacheData(key: "token");
 
-  print("tokkkkeeeeeennnnn : $token");
+  debugPrint("tokkkkeeeeeennnnn : $token");
   runApp(const MyApp());
 }
 

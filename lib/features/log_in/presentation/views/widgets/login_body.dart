@@ -97,12 +97,12 @@ class _LoginBodyState extends State<LoginBody> {
                         defaultText(
                             type: TextInputType.emailAddress,
                           controller: emailController,
-                          label: 'enter your email',
+                          label: 'enter your id',
                           hint: 'your email',
                           prefix: Icons.person,
                           validate: ( value){
                             if (value!.isEmpty){
-                              return 'Email must not be empty';
+                              return 'id must not be empty';
                             }
                             return null;
                           },
@@ -136,6 +136,7 @@ class _LoginBodyState extends State<LoginBody> {
                         Row(
                           children: [
                             Switch(
+                              activeColor: kPrimaryColor,
                               value: _remember,
                               onChanged: (newValue) async{
                                   SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -154,7 +155,7 @@ class _LoginBodyState extends State<LoginBody> {
                         CustomButton(
                           width: double.infinity,
                             backgroundColor:  kPrimaryColor,
-                            text: 'Sign in',
+                            text: 'Log in',
                             func: (){
                               if (formKey.currentState!.validate()) {
                                 BlocProvider.of<AuthCubit>(context).logIn(

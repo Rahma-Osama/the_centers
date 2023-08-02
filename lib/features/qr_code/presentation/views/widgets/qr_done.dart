@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:the_center/constants.dart';
+
 import 'package:the_center/core/shared_widget/custom_buttom.dart';
+import 'package:the_center/features/log_in/presentation/views/log_in%20view.dart';
 import 'package:the_center/features/qr_code/presentation/views/qr_view.dart';
-import 'package:the_center/features/qr_code/presentation/views/widgets/qr_result.dart';
+import '../../../../log_in/presentation/view_model/network.dart';
 
 
 class QrDone extends StatefulWidget {
@@ -16,23 +18,51 @@ class QrDone extends StatefulWidget {
 
 class _QrDoneState extends State<QrDone> {
   @override
-  // void initState() {
-  //   super.initState();
-  //   navigateToNextPage();
-  // }
-
-  // void navigateToNextPage() {
-  //   Future.delayed(const Duration(seconds: 3), () {
-  //     Navigator.pushReplacement(
-  //       context,
-  //       MaterialPageRoute(builder: (context) => const QrResult()),
-  //     );
-  //   });
-  // }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          actions: [
+            IconButton(
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                            title: const Text(
+                              "Are you sure that you want to exit?",
+                              style: TextStyle(color: Colors.black),
+                            ),
+                            content: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                GestureDetector(
+                                    onTap: () async {
+                                      await CacheNetwork.cachInstialization();
+                                      CacheNetwork.deleteCacheData(key: "token");
+                                      CacheNetwork.deleteCacheData(key: "remember");
+                                      token != null;
+                                      Navigator.pushReplacement(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const LoginView()));
+                                    },
+                                    child: Container(
+                                      child: const Text("Yes"),
+                                    )),
+                                GestureDetector(
+                                    onTap: () => Navigator.pop(context),
+                                    child: Container(
+                                      child: const Text("Cancel"),
+                                    ))
+                              ],
+                            ),
+                          ));  }, icon:  Icon(Icons.logout , color: kPrimaryColor,)),
+          ],
+        ),
         body: Padding(
           padding: const EdgeInsets.only(top: 50 , left: 10),
           child: Stack(

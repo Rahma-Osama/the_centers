@@ -27,9 +27,11 @@ class _SplashBodyState extends State<SplashBody> {
 
   @override
   Widget build(BuildContext context) {
+    Size screenSize = MediaQuery.of(context).size;
+
     return  Container(
-      width: 1000,
-      height: 1000,
+      width: screenSize.width,
+      height: screenSize.height,
       decoration: BoxDecoration(
         color: kPrimaryColor,
         image: const DecorationImage(
