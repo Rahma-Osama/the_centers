@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:the_center/constants.dart';
 import 'package:the_center/core/shared_widget/custom_buttom.dart';
 import 'package:the_center/core/shared_widget/default_text.dart';
 import 'package:the_center/features/log_in/presentation/views/widgets/snack_bar.dart';
@@ -152,7 +153,7 @@ class _LoginBodyState extends State<LoginBody> {
                         ),
                         CustomButton(
                           width: double.infinity,
-                            backgroundColor: Colors.lightBlueAccent,
+                            backgroundColor:  kPrimaryColor,
                             text: 'Sign in',
                             func: (){
                               if (formKey.currentState!.validate()) {

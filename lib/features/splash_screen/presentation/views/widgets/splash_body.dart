@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:the_center/constants.dart';
 import 'package:the_center/features/log_in/presentation/views/log_in%20view.dart';
 
@@ -18,7 +17,7 @@ class _SplashBodyState extends State<SplashBody> {
   void initState() {
     super.initState();
     Timer(
-        const Duration(seconds: 10), () {
+        const Duration(seconds: 5), () {
       Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => const LoginView()),
@@ -33,7 +32,7 @@ class _SplashBodyState extends State<SplashBody> {
       height: 1000,
       decoration: BoxDecoration(
         color: kPrimaryColor,
-        image: DecorationImage(
+        image: const DecorationImage(
           image: AssetImage('assets/images/back.png'),
           fit: BoxFit.fill,
         ),
@@ -46,7 +45,7 @@ class _SplashBodyState extends State<SplashBody> {
             padding: const EdgeInsets.all(20.0),
             child: Image.asset('assets/images/cap.png'),
           ),
-          SizedBox(height: 20,),
+          const SizedBox(height: 20,),
           Flexible(
             child: DefaultTextStyle(
               style: const TextStyle(
@@ -58,7 +57,7 @@ class _SplashBodyState extends State<SplashBody> {
                 animatedTexts: [
                   WavyAnimatedText(
                     'The Center' ,
-                    textStyle: TextStyle(
+                    textStyle: const TextStyle(
                       color: Colors.white,
                       fontSize: 48,
                       fontFamily: 'Socake',
@@ -68,10 +67,7 @@ class _SplashBodyState extends State<SplashBody> {
                     ),
                   ),
                 ],
-                isRepeatingAnimation: true,
-                onTap: () {
-                  print("Tap Event");
-                },
+                isRepeatingAnimation: false,
               ),
             ),
           ),
