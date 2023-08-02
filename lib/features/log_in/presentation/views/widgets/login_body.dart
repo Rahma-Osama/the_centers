@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:the_center/core/shared_widget/custom_buttom.dart';
 import 'package:the_center/core/shared_widget/default_text.dart';
 import 'package:the_center/features/log_in/presentation/views/widgets/snack_bar.dart';
@@ -18,10 +19,9 @@ class _LoginBodyState extends State<LoginBody> {
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
 
-
+  bool _remember = false;
   bool isPasswordVisible = false;
   bool? currentValue;
-  bool _remember = false;
   var formKey = GlobalKey <FormState>();
   @override
   Widget build(BuildContext context) {
@@ -136,9 +136,11 @@ class _LoginBodyState extends State<LoginBody> {
                           children: [
                             Switch(
                               value: _remember,
-                              onChanged: (newValue) {
+                              onChanged: (newValue) async{
+                                  SharedPreferences prefs = await SharedPreferences.getInstance();
                                 setState(() {
                                   _remember = newValue;
+                                  prefs.setBool('remember', newValue);
                                 });
                               },
                             ),

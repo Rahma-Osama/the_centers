@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:the_center/features/qr_code/presentation/views/qr_view.dart';
 
 import 'constants.dart';
@@ -13,8 +14,12 @@ import 'features/qr_code/presentation/view_model/bodyqr.dart';
 void main()async{
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
+    SharedPreferences prefs = await SharedPreferences.getInstance();
   await CacheNetwork.cachInstialization();
+  remember = await prefs.getBool('remember');
+
   token=  await CacheNetwork.getCacheData(key: "token");
+
   print("tokkkkeeeeeennnnn : $token");
   runApp(const MyApp());
 }
@@ -36,7 +41,7 @@ class MyApp extends StatelessWidget {
 
       child:  MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: token == "empty" ? const LoginView() : const QrView(),
+        home: token != "empty" && remember==true? const  QrView(): const  LoginView() ,
       ),
     );
   }
