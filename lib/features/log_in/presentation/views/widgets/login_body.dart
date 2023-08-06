@@ -61,36 +61,36 @@ class _LoginBodyState extends State<LoginBody> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(
-                          alignment: Alignment.topCenter,
-                          child:
-                          Image.asset(
-                            'assets/images/icon.png',
-                            height: MediaQuery.of(context).size.height*.3,
-                          ),
-                        ),
-                        const Row(
-                          children: [
-                            Text(
-                              'Welcome!',
-                              style: TextStyle(
-                                fontSize: 40.0,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(width: 5,),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        const Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            'Log in to continue',
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                        ),
+                        // Container(
+                        //   alignment: Alignment.topCenter,
+                        //   child:
+                        //   Image.asset(
+                        //     'assets/images/icon.png',
+                        //     height: MediaQuery.of(context).size.height*.3,
+                        //   ),
+                        // ),
+                        // const Row(
+                        //   children: [
+                        //     Text(
+                        //       'Welcome!',
+                        //       style: TextStyle(
+                        //         fontSize: 40.0,
+                        //         fontWeight: FontWeight.bold,
+                        //       ),
+                        //     ),
+                        //     SizedBox(width: 5,),
+                        //   ],
+                        // ),
+                        // const SizedBox(
+                        //   height: 20,
+                        // ),
+                        // const Align(
+                        //   alignment: Alignment.centerLeft,
+                        //   child: Text(
+                        //     'Log in to continue',
+                        //     style: TextStyle(color: Colors.grey),
+                        //   ),
+                        // ),
                         const SizedBox(
                           height: 40.0,
                         ),

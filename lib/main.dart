@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:the_center/features/log_in/presentation/views/log_in%20view.dart';
 import 'package:the_center/features/qr_code/presentation/views/qr_view.dart';
 import 'package:the_center/features/splash_screen/presentation/views/splash_view.dart';
 
@@ -41,7 +42,8 @@ class MyApp extends StatelessWidget {
 
       child:  MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: token != "empty" && remember==true? const  QrView(): const  SplashView() ,
+        home: LoginView(),
+        // token != "empty" && remember==true? const  QrView(): const  SplashView() ,
       ),
     );
   }

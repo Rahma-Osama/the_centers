@@ -25,7 +25,6 @@ Widget defaultText({
   obscureText: isObscure,
   decoration:  InputDecoration(
     labelText: label,
-    labelStyle: TextStyle(color: kPrimaryColor),
     hintText: hint,
     prefixIcon: Icon(prefix , color: kPrimaryColor),
     suffixIcon: suffix!=null ? IconButton(
