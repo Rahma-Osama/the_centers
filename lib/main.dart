@@ -42,8 +42,7 @@ class MyApp extends StatelessWidget {
 
       child:  MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: LoginView(),
-        // token != "empty" && remember==true? const  QrView(): const  SplashView() ,
+        home: token != "empty" && remember==true? const  QrView(): const  SplashView() ,
       ),
     );
   }
